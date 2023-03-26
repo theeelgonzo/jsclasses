@@ -21,11 +21,19 @@ class Car {
 }
 
 class SUV extends Car {
-    constructor(doors, engine, color, brand, carStats) {
+    constructor(doors, engine, color, carStats) {
         super(doors, engine, color, carStats);
-        this.brand = brand;
+        this._brand = 'No brand yet';
         this.wheels = 4;
         this.ac = true;
+    }
+
+    get getBrand() {
+        return this._brand;
+    }
+
+    set setBrand(newBrand) {
+        this._brand = newBrand;
     }
 
     myBrand() {
@@ -33,11 +41,11 @@ class SUV extends Car {
     }
 }
 
-const cx5 = new SUV(4, 'V6', 'Grey', 'Mazda');
-const civic = new Car(3, 'I4', 'Blue');
-console.log(cx5);
-console.log(cx5.carStats());
-console.log(cx5.myBrand());
+const cx5 = new SUV(4, 'V6', 'Grey');
+//const civic = new Car(3, 'I4', 'Blue');
+console.log(cx5.getBrand);
+cx5.setBrand = 'Mazda';
+console.log(cx5.getBrand);
 //console.log(civic);
 //console.log(civic.carStats());
 //console.log(Car.totalDoors(cx5, civic));
